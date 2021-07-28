@@ -1,11 +1,13 @@
 import time
+
 from appium import webdriver
 
 desired_cap = dict(
-
-    deviceName='Samsung',
+    deviceName='Galaxy Note 10',
     platformName='Android',
-    browserName='Chrome'
+    platformVersion='11',
+    browserName='Chrome',
+    automationName='UiAutomator1'
 )
 
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_cap)
@@ -13,4 +15,3 @@ driver.get("https://google.com")
 driver.title
 time.sleep(2)
 driver.quit()
-
