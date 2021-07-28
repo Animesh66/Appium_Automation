@@ -1,5 +1,4 @@
 import time
-
 from appium import webdriver
 
 desired_cap = dict(
@@ -9,7 +8,7 @@ desired_cap = dict(
     browserName='Chrome'
 )
 
-driver = webdriver.Remote('http://127.0.0.1:4273/wd/hub', desired_cap)
+driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_cap)
 driver.get("https://google.com")
 driver.title
 time.sleep(2)
