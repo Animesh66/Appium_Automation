@@ -10,7 +10,7 @@ desired_cap = dict(
 )
 
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_cap)
-driver.get("https://google.com")
+driver.get("https://www.facebook.com/")
 page_title = driver.title
 print(page_title)
 time.sleep(2)
