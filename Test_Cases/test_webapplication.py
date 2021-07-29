@@ -5,7 +5,7 @@ desired_cap = dict(
     deviceName='Galaxy Note 10',
     platformName='Android',
     platformVersion='11',
-    browserName='Firefox',
+    browserName='Chrome',
     automationName='UiAutomator2'
 )
 
