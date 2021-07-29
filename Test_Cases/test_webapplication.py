@@ -1,12 +1,11 @@
 import time
-
 from appium import webdriver
 
 desired_cap = dict(
     deviceName='Galaxy Note 10',
     platformName='Android',
     platformVersion='11',
-    browserName='Chrome',
+    browserName='Firefox',
     automationName='UiAutomator2'
 )
 
