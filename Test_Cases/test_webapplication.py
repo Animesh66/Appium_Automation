@@ -7,11 +7,12 @@ desired_cap = dict(
     platformName='Android',
     platformVersion='11',
     browserName='Chrome',
-    automationName='UiAutomator1'
+    automationName='UiAutomator2'
 )
 
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_cap)
 driver.get("https://google.com")
-driver.title
+page_title=driver.title
+print(page_title)
 time.sleep(2)
 driver.quit()
