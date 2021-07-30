@@ -19,6 +19,6 @@ options = driver.find_elements_by_tag_name("option")
 no_of_dropdown = len(options)
 print(no_of_dropdown)
 for option in options:
-    print(option.text)
+    print(f"Text is {option.text} language is {option.get_attribute('Lang')}")
 time.sleep(3)
 driver.quit()
