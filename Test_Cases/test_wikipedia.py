@@ -17,7 +17,7 @@ select = Select(dropdown)
 select.select_by_value("hi")
 options = driver.find_elements_by_tag_name("option")
 no_of_dropdown = len(options)
-print(no_of_dropdown)
+print(f"number of values are {no_of_dropdown}")
 for option in options:
     print(f"Text is {option.text} language is {option.get_attribute('Lang')}")
 time.sleep(3)
