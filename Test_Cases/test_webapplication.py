@@ -13,5 +13,5 @@ driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_cap)
 driver.get("https://www.facebook.com/")
 page_title = driver.title
 print(page_title)
-time.sleep(2)
+time.sleep(3)
 driver.quit()
