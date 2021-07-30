@@ -11,7 +11,9 @@ desired_cap = dict(
     automationName='UiAutomator2'
 )
 appium_service = AppiumService()  # create Appium object
-appium_service.start()  # start Appium connection
+# "$ANDRIOD_HOME=/Users/animeshmukherjee/Library/Android/sdk","$JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_291.jdk/Contents/Home"
+appium_service.start(env={'ANDROID_HOME': '/Users/animeshmukherjee/Library/Android/sdk',
+                          'JAVA_HOME': '/Library/Java/JavaVirtualMachines/jdk1.8.0_291.jdk/Contents/Home'} )  # start Appium connection
 print(appium_service.is_running)
 print(appium_service.is_listening)
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_cap)
