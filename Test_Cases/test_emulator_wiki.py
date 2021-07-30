@@ -4,14 +4,14 @@ from appium.webdriver.appium_service import AppiumService
 from selenium.webdriver.support.select import Select
 
 desired_cap = dict(
-    deviceName='Galaxy Note 10',
+    deviceName='Nexus 5X',
     platformName='Android',
-    platformVersion='8',
+    platformVersion='8.1',
     browserName='Chrome',
     automationName='UiAutomator2'
 )
-appium_service = AppiumService()
-appium_service.start()
+appium_service = AppiumService()  # create Appium object
+appium_service.start()  # start Appium connection
 print(appium_service.is_running)
 print(appium_service.is_listening)
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_cap)
@@ -26,4 +26,4 @@ for option in options:
     print(f"Text is {option.text} language is {option.get_attribute('Lang')}")
 time.sleep(3)
 driver.quit()
-appium_service.stop()
+appium_service.stop()  # stop Appium connection
