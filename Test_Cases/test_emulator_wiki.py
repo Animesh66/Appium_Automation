@@ -8,7 +8,9 @@ desired_cap = dict(
     platformName='Android',
     platformVersion='8.1',
     browserName='Chrome',
-    automationName='UiAutomator2'
+    automationName='UiAutomator2',
+    chromedriverExecutable='/Users/animeshmukherjee/PycharmProjects/pythonProject/Appium_Automation/Chrome_Driver/chromedriver'
+    #chromedriverExecutableDir='/Users/animeshmukherjee/PycharmProjects/pythonProject/Appium_Automation/Chrome_Driver/chromedriver'
 )
 appium_service = AppiumService()  # create Appium object
 appium_service.start(env={'ANDROID_HOME': '/Users/animeshmukherjee/Library/Android/sdk',
