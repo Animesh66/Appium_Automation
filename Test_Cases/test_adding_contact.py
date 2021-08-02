@@ -1,7 +1,6 @@
 import time
 from appium import webdriver
 
-
 desired_cap = dict(
     deviceName='Galaxy Note 10',
     platformName='Android',
