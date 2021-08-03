@@ -1,6 +1,9 @@
 import time
 
 from appium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 desired_cap = dict(
     deviceName='Galaxy Note 10',
@@ -12,9 +15,11 @@ desired_cap = dict(
 
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_cap)
 driver.implicitly_wait(10)
+wait = WebDriverWait(driver, 10)
 driver.find_element_by_id("org.simple.clinic.staging:id/nextButton").click()
 driver.find_element_by_id("org.simple.clinic.staging:id/getStartedButton").click()
 driver.find_element_by_xpath("//android.widget.RadioButton[@text='India']").click()
+wait.until(EC.element_to_be_clickable(By.ID, "org.simple.clinic.staging:id/nextButton"))
 driver.find_element_by_id("org.simple.clinic.staging:id/nextButton").click()
 driver.find_element_by_id("org.simple.clinic.staging:id/phoneNumberEditText").send_keys("8123456789")
 driver.find_element_by_id("org.simple.clinic.staging:id/nextButton").click()
