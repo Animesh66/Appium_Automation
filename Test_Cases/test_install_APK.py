@@ -6,7 +6,7 @@ desired_cap = dict(
     deviceName='Galaxy Note 10',
     platformName='Android',
     platformVersion='11',
-    app='/Users/animeshmukherjee/PycharmProjects/pythonProject/Appium_Automation/Android_App/CarWale_com.carwale.apk',
+    app='/Users/animeshmukherjee/PycharmProjects/pythonProject/Appium_Automation/Android_App/CallHippo_com.callhippo.bueno.callhippo.apk',
     automationName='UiAutomator2'
 )
 
