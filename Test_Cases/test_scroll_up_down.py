@@ -1,3 +1,5 @@
+import time
+
 from appium import webdriver
 
 desired_cap = dict(
@@ -14,7 +16,8 @@ driver.swipe(510, 600, 510, 200, 1000)
 driver.swipe(510, 600, 510, 200, 1000)
 driver.swipe(510, 600, 510, 200, 1000)
 driver.swipe(510, 600, 510, 200, 1000)
-driver.swipe(510, 200, 510, 600, 1000)
-driver.swipe(510, 200, 510, 600, 1000)
-driver.swipe(510, 200, 510, 600, 1000)
-driver.swipe(510, 200, 510, 600, 1000)
+time.sleep(2)
+driver.swipe(510, 500, 510, 1000, 1000)
+driver.swipe(510, 500, 510, 1000, 1000)
+driver.swipe(510, 500, 510, 1000, 1000)
+driver.swipe(510, 500, 510, 1000, 1000)
