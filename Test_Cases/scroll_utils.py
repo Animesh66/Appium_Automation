@@ -1,4 +1,4 @@
-class ScrollToText:
+class ScrollUtil:
 
     @staticmethod
     def scroll_to_text_by_UiAutomator(text, driver):
