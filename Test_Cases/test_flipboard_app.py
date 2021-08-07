@@ -19,3 +19,6 @@ driver.find_element_by_id("flipboard.app:id/icon_button_text").click()
 if driver.find_element_by_id("android:id/button1"):
     driver.find_element_by_id("android:id/button1").click()
 driver.find_element_by_id("com.google.android.gms:id/credential_save_reject").click()
+driver.find_element_by_id("flipboard.app:id/account_login_full_name").send_keys("Animesh")
+driver.find_element_by_id("	flipboard.app:id/account_login_username").send_keys("er.animesh6")
+driver.find_element_by_id("	flipboard.app:id/icon_button_text").click()
