@@ -1,4 +1,5 @@
 import time
+from scroll_utils import ScrollUtil
 
 from appium import webdriver
 
