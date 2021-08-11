@@ -4,8 +4,8 @@ desired_cap = dict(
     deviceName='Galaxy Note 10',
     platformName='Android',
     platformVersion='11',
-    appPackage='com.samsung.android.app.contacts',
-    appActivity='com.samsung.android.contacts.contactslist.PeopleActivity',
+    appPackage='com.samsung.android.app.spage',
+    appActivity='.ui.MainActivity',
     automationName='UiAutomator2'
 )
 
