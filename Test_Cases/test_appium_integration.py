@@ -37,7 +37,9 @@ def teardown_function(function):
 
 @pytest.mark.parametrize("city", get_data())
 def test_goibibo(city):
-    print(city)
-    time.sleep(3)
     driver.find_element_by_xpath("//android.widget.LinearLayout[@content-desc='hotels']/android.widget.TextView").click()
+    driver.find_element_by_xpath("//android.view.ViewGroup[@content-desc='destination']/android.widget.TextView").click()
+    driver.find_element_by_id("com.goibibo:id/edtSearch").send_keys(city)
+    dropdown_list = driver.find_elements_by_id("com.goibibo:id/lytLocationItem")
+    dropdown_list[0].click()
     driver.find_element_by_xpath("//android.view.ViewGroup[@content-desc='getsetgo_clicked']/android.view.ViewGroup/android.widget.TextView").click()
