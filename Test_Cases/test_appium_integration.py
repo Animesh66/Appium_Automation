@@ -44,3 +44,9 @@ def test_goibibo(city):
     dropdown_list[0].click()
     driver.find_element_by_xpath("//android.view.ViewGroup[@content-desc='getsetgo_clicked']/android.view.ViewGroup/android.widget.TextView").click()
     time.sleep(3)
+    cityText = driver.find_element_by_xpath("//android.widget.TextView[contains(@text,'EXPLORE')]").text
+    print(cityText)
+    newCityText = str(cityText).replace("EXPLORE ", "").replace("!", "")
+    print(newCityText)
+
+    assert newCityText in str(city).upper()
