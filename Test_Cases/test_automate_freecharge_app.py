@@ -26,7 +26,7 @@ sms_list = driver.find_elements_by_id("com.samsung.android.messaging:id/list_ava
 sms_list[0].click()
 time.sleep(3)
 messages = driver.find_elements_by_id('com.samsung.android.messaging:id/content_text_view')
-sms_text = messages[-1].text  # read the text of the last message
+sms_text = messages[-1].text  # reading the text of the last message(most recent message
 otp_value = sms_text[4:8]  # extract the $ digit OTP from the SMS string
 print(otp_value)
 time.sleep(3)
