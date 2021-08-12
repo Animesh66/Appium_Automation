@@ -25,3 +25,6 @@ time.sleep(5)
 driver.find_element_by_xpath("//android.widget.TextView[@text='AD-FCHARG']").click()
 messages = driver.find_elements_by_id('com.samsung.android.messaging:id/content_text_view')
 text = messages[-1]  # read the text of the last message
+print(text)
+time.sleep(3)
+driver.quit()
