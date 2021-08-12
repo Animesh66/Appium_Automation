@@ -11,7 +11,7 @@ desired_cap = dict(
     automationName='UiAutomator2'
 )
 
-driver = webdriver.Remote("http://127.0.0.1:4444/wd/hub", desired_cap)
+driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_cap)
 driver.implicitly_wait(10)
 driver.find_element_by_id("com.freecharge.android:id/getStarted").click()
 driver.find_element_by_id("com.android.permissioncontroller:id/permission_allow_button").click()
