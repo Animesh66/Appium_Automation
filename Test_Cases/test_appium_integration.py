@@ -1,3 +1,5 @@
+import time
+
 import pytest
 from appium import webdriver
 from appium.webdriver.appium_service import AppiumService
@@ -5,9 +7,8 @@ from appium.webdriver.appium_service import AppiumService
 
 def get_data():
     return [
-        ["animesh5678@gmail.com", "Welcome@1"],
-        ["er.animesh6@gmail.com", "Welcome@2"],
-        ["er.animesh6@hotmail.com", "Welcome@3"]
+        ["Delhi"],
+        ["Dubai"]
     ]
 
 
@@ -22,7 +23,8 @@ def setup_function(function):
         platformVersion='11',
         appPackage='com.goibibo',
         appActivity='.common.HomeActivity',
-        automationName='UiAutomator2'
+        automationName='UiAutomator2',
+        noReset=True
     )
     global driver
     driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_cap)
@@ -34,6 +36,9 @@ def teardown_function(function):
     appium_service.stop()
 
 
-@pytest.mark.parametrize("username, password", get_data())
-def test_goibibo(username, password):
-    pass
+@pytest.mark.parametrize("city", get_data())
+def test_goibibo(city):
+    print(city)
+    time.sleep(3)
+    driver.find_element_by_xpath("//android.widget.LinearLayout[@content-desc='hotels']/android.widget.TextView").click()
+    driver.find_element_by_xpath("//android.view.ViewGroup[@content-desc='getsetgo_clicked']/android.view.ViewGroup/android.widget.TextView").click()
