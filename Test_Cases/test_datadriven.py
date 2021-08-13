@@ -21,6 +21,7 @@ def get_data():
         main_list.insert(i, data_list)
     return main_list
 
+
 def setup_function(function):
     global appium_service
     appium_service = AppiumService()
