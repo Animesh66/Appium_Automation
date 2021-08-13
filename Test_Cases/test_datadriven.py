@@ -19,7 +19,7 @@ def get_data():
             data = sheet.cell(row=i, column=j).value
             data_list.insert(j, data)
         main_list.insert(i, data_list)
-        return main_list
+    return main_list
 
 def setup_function(function):
     global appium_service
