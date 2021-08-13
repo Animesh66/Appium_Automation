@@ -48,5 +48,4 @@ def test_goibibo(city):
     print(cityText)
     newCityText = str(cityText).replace("EXPLORE ", "").replace("!", "")
     print(newCityText)
-
     assert newCityText in str(city).upper()
