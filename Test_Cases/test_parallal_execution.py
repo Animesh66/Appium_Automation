@@ -25,8 +25,10 @@ def get_data():
 @pytest.fixture(params=["device1", "device2"], scope="function")
 def appium_driver(request):
     global appium_service
+    global driver
     appium_service = AppiumService()
     appium_service.start()
+    driver.implicitly_wait(10)
     if request.param == "device1":
         desired_cap = dict(
             deviceName='Galaxy Note 10',
@@ -38,9 +40,8 @@ def appium_driver(request):
             automationName='UiAutomator2',
             noReset=True
         )
-        global driver
         driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_cap)
-        driver.implicitly_wait(10)
+
     if request.param == "device2":
         desired_cap = dict(
             deviceName='Galaxy Note 10',
@@ -52,11 +53,9 @@ def appium_driver(request):
             automationName='UiAutomator2',
             noReset=False
         )
-        global driver
-        driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_cap)
-        driver.implicitly_wait(10)
-    
-    yield
+        driver = webdriver.Remote('http://127.0.0.1:4724/wd/hub', desired_cap)
+
+    yield driver
     driver.quit()
     appium_service.stop()
 
@@ -64,6 +63,6 @@ def appium_driver(request):
 @pytest.mark.parametrize("city, country", get_data())
 def test_instagram(city, country):
     driver.find_element_by_id("com.google.android.gms:id/cancel").click()
-    driver.find_element_by_id("com.instagram.android:id/sign_up_with_email_or_phone").click()
+    #driver.find_element_by_id("com.instagram.android:id/sign_up_with_email_or_phone").click()
     #assert "Test" in str(city).upper()
     #allure.attach(driver.get_screenshot_as_png(), name="screenshot", attachment_type=AttachmentType.PNG)
