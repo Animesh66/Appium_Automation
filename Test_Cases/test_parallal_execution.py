@@ -1,7 +1,4 @@
-import time
-import allure
 import pytest
-from allure_commons.types import AttachmentType
 from appium import webdriver
 from appium.webdriver.appium_service import AppiumService
 import openpyxl as xl
