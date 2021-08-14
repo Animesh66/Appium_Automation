@@ -40,7 +40,7 @@ def appium_driver(request):
             automationName='UiAutomator2',
             noReset=True
         )
-        driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_cap)
+        driver = webdriver.Remote('http://127.0.0.1:4724/wd/hub', desired_cap)
 
     if request.param == "device2":
         desired_cap = dict(
@@ -53,7 +53,7 @@ def appium_driver(request):
             automationName='UiAutomator2',
             noReset=False
         )
-        driver = webdriver.Remote('http://127.0.0.1:4724/wd/hub', desired_cap)
+        driver = webdriver.Remote('http://127.0.0.1:4725/wd/hub', desired_cap)
 
     yield driver
     driver.quit()
