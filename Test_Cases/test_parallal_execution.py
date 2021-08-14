@@ -27,7 +27,7 @@ def appium_driver(request):
     global appium_service
     appium_service = AppiumService()
     appium_service.start()
-    if "device1":
+    if request.params == "device1":
         desired_cap = dict(
             deviceName='Galaxy Note 10',
             platformName='Android',
@@ -38,7 +38,7 @@ def appium_driver(request):
             automationName='UiAutomator2',
             noReset=True
         )
-    elif "device2":
+    if request.params == "device2":
         desired_cap = dict(
             deviceName='Galaxy Note 10',
             platformName='Android',
