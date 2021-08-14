@@ -32,9 +32,9 @@ def appium_driver(request):
             deviceName='Galaxy Note 10',
             platformName='Android',
             platformVersion='11',
-            appPackage='com.goibibo',
+            appPackage='com.instagram.android',
             udid='R58M86QW34P',
-            appActivity='.common.HomeActivity',
+            appActivity='com.instagram.mainactivity.MainActivity',
             automationName='UiAutomator2',
             noReset=True
         )
@@ -43,11 +43,11 @@ def appium_driver(request):
             deviceName='Galaxy Note 10',
             platformName='Android',
             platformVersion='11',
-            appPackage='com.goibibo',
+            appPackage='com.instagram.android',
             udid='emulator-5554',
-            appActivity='.common.HomeActivity',
+            appActivity='com.instagram.mainactivity.MainActivity',
             automationName='UiAutomator2',
-            noReset=True
+            noReset=False
         )
 
     global driver
@@ -59,24 +59,8 @@ def appium_driver(request):
 
 
 @pytest.mark.parametrize("city, country", get_data())
-def test_goibibo(city, country):
-    driver.find_element_by_xpath(
-        "//android.widget.LinearLayout[@content-desc='hotels']/android.widget.TextView").click()
-    allure.attach(driver.get_screenshot_as_png(), name="screenshot1", attachment_type=AttachmentType.PNG)
-    driver.find_element_by_xpath(
-        "//android.view.ViewGroup[@content-desc='destination']/android.widget.TextView").click()
-    allure.attach(driver.get_screenshot_as_png(), name="screenshot2", attachment_type=AttachmentType.PNG)
-    driver.find_element_by_id("com.goibibo:id/edtSearch").send_keys(city)
-    allure.attach(driver.get_screenshot_as_png(), name="screenshot3", attachment_type=AttachmentType.PNG)
-    dropdown_list = driver.find_elements_by_id("com.goibibo:id/lytLocationItem")
-    dropdown_list[0].click()
-    driver.find_element_by_xpath(
-        "//android.view.ViewGroup[@content-desc='getsetgo_clicked']/android.view.ViewGroup/android.widget.TextView").click()
-    allure.attach(driver.get_screenshot_as_png(), name="screenshot4", attachment_type=AttachmentType.PNG)
-    time.sleep(3)
-    cityText = driver.find_element_by_xpath("//android.widget.TextView[contains(@text,'EXPLORE')]").text
-    print(cityText)
-    newCityText = str(cityText).replace("EXPLORE ", "").replace("!", "")
-    print(newCityText)
-    assert newCityText in str(city).upper()
-    allure.attach(driver.get_screenshot_as_png(), name="screenshot", attachment_type=AttachmentType.PNG)
+def test_instagram(city, country):
+    driver.find_element_by_id("com.google.android.gms:id/cancel").click()
+    driver.find_element_by_id("com.instagram.android:id/sign_up_with_email_or_phone").click()
+    #assert "Test" in str(city).upper()
+    #allure.attach(driver.get_screenshot_as_png(), name="screenshot", attachment_type=AttachmentType.PNG)
