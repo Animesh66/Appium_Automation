@@ -4,28 +4,8 @@ from appium.webdriver.appium_service import AppiumService
 import openpyxl as xl
 
 
-def get_data():
-    workbook = xl.load_workbook("./data_driven/appium_data.xlsx")
-    sheet = workbook["Sheet1"]
-    total_rows = sheet.max_row
-    total_cols = sheet.max_column
-    main_list = []
-    for i in range(2, total_rows + 1):
-        data_list = []
-        for j in range(1, total_cols + 1):
-            data = sheet.cell(row=i, column=j).value
-            data_list.insert(j, data)
-        main_list.insert(i, data_list)
-    return main_list
-
-
 @pytest.fixture(params=["device1", "device2"], scope="function")
 def appium_driver(request):
-    global appium_service
-    global driver
-    appium_service = AppiumService()
-    appium_service.start()
-    driver.implicitly_wait(10)
     if request.param == "device1":
         desired_cap = dict(
             deviceName='Galaxy Note 10',
@@ -35,15 +15,15 @@ def appium_driver(request):
             udid='R58M86QW34P',
             appActivity='com.instagram.mainactivity.MainActivity',
             automationName='UiAutomator2',
-            noReset=True
+            noReset=False
         )
         driver = webdriver.Remote('http://127.0.0.1:4724/wd/hub', desired_cap)
 
     if request.param == "device2":
         desired_cap = dict(
-            deviceName='Galaxy Note 10',
+            deviceName='Nexus 7',
             platformName='Android',
-            platformVersion='11',
+            platformVersion='8.1',
             appPackage='com.instagram.android',
             udid='emulator-5554',
             appActivity='com.instagram.mainactivity.MainActivity',
@@ -51,10 +31,9 @@ def appium_driver(request):
             noReset=False
         )
         driver = webdriver.Remote('http://127.0.0.1:4725/wd/hub', desired_cap)
-
+    driver.implicitly_wait(10)
     yield driver
     driver.quit()
-    appium_service.stop()
 
 
 def test_instagram(appium_driver):
