@@ -27,7 +27,7 @@ def appium_driver(request):
     global appium_service
     appium_service = AppiumService()
     appium_service.start()
-    if request.params == "device1":
+    if request.param == "device1":
         desired_cap = dict(
             deviceName='Galaxy Note 10',
             platformName='Android',
@@ -38,7 +38,10 @@ def appium_driver(request):
             automationName='UiAutomator2',
             noReset=True
         )
-    if request.params == "device2":
+        global driver
+        driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_cap)
+        driver.implicitly_wait(10)
+    if request.param == "device2":
         desired_cap = dict(
             deviceName='Galaxy Note 10',
             platformName='Android',
@@ -49,10 +52,10 @@ def appium_driver(request):
             automationName='UiAutomator2',
             noReset=False
         )
-
-    global driver
-    driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_cap)
-    driver.implicitly_wait(10)
+        global driver
+        driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_cap)
+        driver.implicitly_wait(10)
+    
     yield
     driver.quit()
     appium_service.stop()
