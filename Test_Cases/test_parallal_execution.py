@@ -1,7 +1,5 @@
 import pytest
 from appium import webdriver
-from appium.webdriver.appium_service import AppiumService
-import openpyxl as xl
 
 
 @pytest.fixture(params=["device1", "device2"], scope="function")
