@@ -22,26 +22,38 @@ def get_data():
     return main_list
 
 
-def setup_function(function):
+@pytest.fixture(params=["device1", "device2"], scope="function")
+def appium_driver(request):
     global appium_service
     appium_service = AppiumService()
     appium_service.start()
+    if "device1":
+        desired_cap = dict(
+            deviceName='Galaxy Note 10',
+            platformName='Android',
+            platformVersion='11',
+            appPackage='com.goibibo',
+            udid='R58M86QW34P',
+            appActivity='.common.HomeActivity',
+            automationName='UiAutomator2',
+            noReset=True
+        )
+    elif "device2":
+        desired_cap = dict(
+            deviceName='Galaxy Note 10',
+            platformName='Android',
+            platformVersion='11',
+            appPackage='com.goibibo',
+            udid='emulator-5554',
+            appActivity='.common.HomeActivity',
+            automationName='UiAutomator2',
+            noReset=True
+        )
 
-    desired_cap = dict(
-        deviceName='Galaxy Note 10',
-        platformName='Android',
-        platformVersion='11',
-        appPackage='com.goibibo',
-        appActivity='.common.HomeActivity',
-        automationName='UiAutomator2',
-        noReset=True
-    )
     global driver
     driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_cap)
     driver.implicitly_wait(10)
-
-
-def teardown_function(function):
+    yield
     driver.quit()
     appium_service.stop()
 
