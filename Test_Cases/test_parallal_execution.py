@@ -57,9 +57,9 @@ def appium_driver(request):
     appium_service.stop()
 
 
-@pytest.mark.parametrize("city, country", get_data())
-def test_instagram(city, country):
+def test_instagram(appium_driver):
+    driver = appium_driver
     driver.find_element_by_id("com.google.android.gms:id/cancel").click()
-    #driver.find_element_by_id("com.instagram.android:id/sign_up_with_email_or_phone").click()
-    #assert "Test" in str(city).upper()
-    #allure.attach(driver.get_screenshot_as_png(), name="screenshot", attachment_type=AttachmentType.PNG)
+    # driver.find_element_by_id("com.instagram.android:id/sign_up_with_email_or_phone").click()
+    # assert "Test" in str(city).upper()
+    # allure.attach(driver.get_screenshot_as_png(), name="screenshot", attachment_type=AttachmentType.PNG)
