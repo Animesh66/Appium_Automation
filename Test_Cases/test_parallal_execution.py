@@ -1,3 +1,5 @@
+import time
+
 import pytest
 from appium import webdriver
 
@@ -16,7 +18,7 @@ def appium_driver(request):
             automationName='UiAutomator2',
             noReset=False
         )
-        driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_cap)
+        driver = webdriver.Remote('http://127.0.0.1:4724/wd/hub', desired_cap)
 
     if request.param == 'nexus_7':
         desired_cap = dict(
@@ -29,10 +31,11 @@ def appium_driver(request):
             automationName='UiAutomator2',
             noReset=False
         )
-        driver = webdriver.Remote('http://127.0.0.1:4724/wd/hub', desired_cap)
+        driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_cap)
 
     driver.implicitly_wait(10)
     yield driver
+    time.sleep(3)
     driver.quit()
 
 
