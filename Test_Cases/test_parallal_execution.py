@@ -4,7 +4,7 @@ from appium import webdriver
 
 @pytest.fixture(params=["note_10", "nexus_7"], scope="function")
 def appium_driver(request):
-    if request.param == "note_10":
+    if request.param == 'note_10':
         desired_cap = dict(
             deviceName='Galaxy Note 10',
             platformName='Android',
@@ -17,7 +17,7 @@ def appium_driver(request):
         )
         driver = webdriver.Remote('http://127.0.0.1:4724/wd/hub', desired_cap)
 
-    if request.param == "nexus_7":
+    if request.param == 'nexus_7':
         desired_cap = dict(
             deviceName='Nexus 7',
             platformName='Android',
