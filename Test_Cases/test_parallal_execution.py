@@ -4,6 +4,7 @@ from appium import webdriver
 
 @pytest.fixture(params=["note_10", "nexus_7"], scope="function")
 def appium_driver(request):
+
     if request.param == 'note_10':
         desired_cap = dict(
             deviceName='Galaxy Note 10',
@@ -37,6 +38,5 @@ def appium_driver(request):
 def test_instagram(appium_driver):
     driver = appium_driver
     driver.find_element_by_id("com.google.android.gms:id/cancel").click()
-    # driver.find_element_by_id("com.instagram.android:id/sign_up_with_email_or_phone").click()
-    # assert "Test" in str(city).upper()
-    # allure.attach(driver.get_screenshot_as_png(), name="screenshot", attachment_type=AttachmentType.PNG)
+
+
