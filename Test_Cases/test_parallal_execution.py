@@ -1,5 +1,4 @@
 import time
-
 import pytest
 from appium import webdriver
 
