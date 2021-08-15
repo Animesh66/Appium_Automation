@@ -2,28 +2,28 @@ import pytest
 from appium import webdriver
 
 
-@pytest.fixture(params=["device1", "device2"], scope="function")
+@pytest.fixture(params=["note_10", "nexus_7"], scope="function")
 def appium_driver(request):
-    if request.param == "device1":
+    if request.param == "note_10":
         desired_cap = dict(
             deviceName='Galaxy Note 10',
             platformName='Android',
             platformVersion='11',
-            appPackage='com.instagram.android',
             udid='R58M86QW34P',
+            appPackage='com.instagram.android',
             appActivity='com.instagram.mainactivity.MainActivity',
             automationName='UiAutomator2',
             noReset=False
         )
         driver = webdriver.Remote('http://127.0.0.1:4724/wd/hub', desired_cap)
 
-    if request.param == "device2":
+    if request.param == "nexus_7":
         desired_cap = dict(
             deviceName='Nexus 7',
             platformName='Android',
             platformVersion='8.1',
-            appPackage='com.instagram.android',
             udid='emulator-5554',
+            appPackage='com.instagram.android',
             appActivity='com.instagram.mainactivity.MainActivity',
             automationName='UiAutomator2',
             noReset=False
