@@ -17,7 +17,7 @@ def appium_driver(request):
             automationName='UiAutomator2',
             noReset=False
         )
-        driver = webdriver.Remote('http://127.0.0.1:4444/wd/hub', desired_cap)
+        driver = webdriver.Remote('http://127.0.0.1:4444/wd/hub', desired_cap)  # this is the request to hub
 
     if request.param == 'nexus_7':
         desired_cap = dict(
