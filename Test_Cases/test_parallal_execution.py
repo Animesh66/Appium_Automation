@@ -2,7 +2,7 @@ import pytest
 from appium import webdriver
 
 
-@pytest.fixture(params=["note_10", "nexus_7"], scope="function")
+@pytest.fixture(params=['note_10', 'nexus_7'], scope="function")
 def appium_driver(request):
 
     if request.param == 'note_10':
@@ -16,7 +16,7 @@ def appium_driver(request):
             automationName='UiAutomator2',
             noReset=False
         )
-        driver = webdriver.Remote('http://127.0.0.1:4724/wd/hub', desired_cap)
+        driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_cap)
 
     if request.param == 'nexus_7':
         desired_cap = dict(
@@ -29,7 +29,8 @@ def appium_driver(request):
             automationName='UiAutomator2',
             noReset=False
         )
-        driver = webdriver.Remote('http://127.0.0.1:4725/wd/hub', desired_cap)
+        driver = webdriver.Remote('http://127.0.0.1:4724/wd/hub', desired_cap)
+
     driver.implicitly_wait(10)
     yield driver
     driver.quit()
