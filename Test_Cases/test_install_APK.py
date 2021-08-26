@@ -1,6 +1,5 @@
 import time
 from pathlib import Path
-
 from appium import webdriver
 
 desired_cap = dict(
