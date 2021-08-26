@@ -1,4 +1,5 @@
 import time
+from pathlib import Path
 
 from appium import webdriver
 
@@ -6,7 +7,8 @@ desired_cap = dict(
     deviceName='Galaxy Note 10',
     platformName='Android',
     platformVersion='11',
-    app='/Users/animeshmukherjee/PycharmProjects/pythonProject/Appium_Automation/Android_App/CallHippo_com.callhippo.bueno.callhippo.apk',
+    app=str(Path().absolute().parent) + '/Android_App/CallHippo_com.callhippo.bueno.callhippo.apk',
+    # This will return the absolute path of the parent and append it with current path
     automationName='UiAutomator2'
 )
 
