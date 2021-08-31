@@ -1,4 +1,3 @@
-import time
 from appium import webdriver
 
 desired_cap = dict(
