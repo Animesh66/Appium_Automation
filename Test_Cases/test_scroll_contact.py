@@ -13,7 +13,7 @@ desired_cap = dict(
 
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_cap)
 driver.implicitly_wait(10)
-element = driver.find_elements_by_accessibility_id("Dadu")
+element = driver.find_element_by_accessibility_id("Dadu")
 driver.execute_script("arguments[0].scrollIntoView();", element)
 element.click()
 time.sleep(5)
