@@ -3,9 +3,13 @@ from appium import webdriver
 from selenium.webdriver.support.select import Select
 
 desired_cap = dict(
-    deviceName='Galaxy Note 10',
+    # deviceName='Galaxy Note 10',
+    # platformName='Android',
+    # platformVersion='11',
+    deviceName='Nexus 7',
     platformName='Android',
-    platformVersion='11',
+    platformVersion='8.1',
+    udid='emulator-5554',
     browserName='Chrome',
     automationName='UiAutomator2'
 )
